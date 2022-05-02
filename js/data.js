@@ -132,6 +132,8 @@ function cardGenerator(element) {
 	let newDiv = document.createElement('div');
 	//Visualizza il nome dell'icona
 	newDiv.innerHTML = `<i class="fa-solid fa-${element.name}"></i>`;
+	//Visualzza il colore dell'icona
+	newDiv.style.color = `${element.color}`;
 	iconCard.append(newDiv);
 	iconCard.innerHTML +=`<p>${element.name}</p>`;
 
