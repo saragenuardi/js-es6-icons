@@ -117,6 +117,8 @@ const icons = [
 ];
 
 
+console.log(icons)
+
 const cardsAnimal = document.getElementById('icons-box');
 const formSelect = document.getElementById('icons');
 
@@ -145,23 +147,23 @@ icons.forEach(cardGenerator);
 
 // Funzione per effettuare l'utilizzo del form
 function typeSelect() {
-	const iconSelect = document.getElementById('icons').value;
+	const iconSelect = formSelect.value;
+	console.log(iconSelect);
 	cardsAnimal.innerHTML = '';
 	if (iconSelect === 'All'){
-		icons.forEach(cardsAnimal);
+		icons.forEach(cardGenerator);
 	}else if (iconSelect === 'Animal') {
-		icons.filter((element) => {
-			return element.type === 'animal'
-		}).forEach(cardsAnimal);
+		let animals = icons.filter((element) => element.type === 'animal');
+		animals.forEach(cardGenerator);
 	}else if (iconSelect === 'Vegetable') {
-		iconSelect.filter((element) => {
-			return element.type === 'vegetable'
-		}).forEach(cardsAnimal);
+		let vegetables = icons.filter((element) => element.type === 'vegetable');
+		vegetables.forEach(cardGenerator);
 	}else if (iconSelect === 'User'){
-		icons.filter((element) => {
-			return element.type === 'user'
-		}).forEach(cardsAnimal);
-	};
+		let user = icons.filter((element) => element.type === 'user');
+		user.forEach(cardGenerator);
+	}
+
+	console.log(iconSelect)
 };
-console.log(iconSelect)
-formSelect.addEventListener('choice', typeSelect);
+
+formSelect.addEventListener('change', typeSelect);
