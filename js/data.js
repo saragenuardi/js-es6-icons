@@ -1,7 +1,7 @@
 
 
 //Array di oggetti
-[
+const icons = [
 	{
 		name: 'cat',
 		prefix: 'fa-',
@@ -115,3 +115,28 @@
 		color: 'blue'
 	}
 ];
+
+
+const cardsAnimal = document.getElementById('icons-box');
+const formSelect = document.getElementById('icons');
+
+//FUNCTIONS
+
+//Funzione che crera le card
+function cardGenerator(element) {
+	//Crea elementi html
+	let newCol = document.createElement('div');
+	newCol.setAttribute('class', 'col');
+	let iconCard = document.createElement('div');
+	iconCard.setAttribute('class', 'cardAnimal');
+	let newDiv = document.createElement('div');
+	//Visualizza il nome dell'icona
+	newDiv.innerHTML = `<i class="fa-solid fa-${element.name}"></i>`;
+	iconCard.append(newDiv);
+	iconCard.innerHTML +=`<p>${element.name}</p>`;
+
+	newCol.append(iconCard)
+	cardsAnimal.append(newCol);
+	
+}
+icons.forEach(cardGenerator);
