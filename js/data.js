@@ -122,7 +122,7 @@ const formSelect = document.getElementById('icons');
 
 //FUNCTIONS
 
-//Funzione che crera le card
+//Funzione che crea le card
 function cardGenerator(element) {
 	//Crea elementi html
 	let newCol = document.createElement('div');
@@ -142,3 +142,26 @@ function cardGenerator(element) {
 	
 }
 icons.forEach(cardGenerator);
+
+// Funzione per effettuare l'utilizzo del form
+function typeSelect() {
+	const iconSelect = document.getElementById('icons').value;
+	cardsAnimal.innerHTML = '';
+	if (iconSelect === 'All'){
+		icons.forEach(cardsAnimal);
+	}else if (iconSelect === 'Animal') {
+		icons.filter((element) => {
+			return element.type === 'animal'
+		}).forEach(cardsAnimal);
+	}else if (iconSelect === 'Vegetable') {
+		iconSelect.filter((element) => {
+			return element.type === 'vegetable'
+		}).forEach(cardsAnimal);
+	}else if (iconSelect === 'User'){
+		icons.filter((element) => {
+			return element.type === 'user'
+		}).forEach(cardsAnimal);
+	};
+};
+console.log(iconSelect)
+formSelect.addEventListener('choice', typeSelect);

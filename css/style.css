@@ -3,3 +3,9 @@
     text-align: center;
     text-transform: uppercase;
 }
+
+.fa-solid{
+    padding: 5px;
+    font-size: 60px;
+    padding-bottom: 10px;
+}
